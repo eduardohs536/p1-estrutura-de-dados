@@ -39,7 +39,8 @@ public class VetorDinamico {
     }
 
     public void adicionar(Processo p) {
-        duplicarCapacidade(); // chama direto
+        duplicarCapacidade();
+
         processo[tamanho++] = p;
     }
 
@@ -62,19 +63,19 @@ public class VetorDinamico {
         }
     }
 
-    public void remover(int indice) {
+    public void remover(int posicao) {
 
-        if (indice < 0 || indice >= tamanho) {
+        if (posicao < 0 || posicao >= tamanho) {
             return;
         }
 
-        for (int i = indice; i < tamanho - 1; i++) {
+        for (int i = posicao; i < tamanho - 1; i++) {
             processo[i] = processo[i + 1];
         }
 
         processo[--tamanho] = null;
 
-        reduzirCapacidade(); // chama direto
+        reduzirCapacidade();
     }
 
     public void listar() {
@@ -90,5 +91,22 @@ public class VetorDinamico {
             }
         }
         return -1;
+    }
+
+    public Processo buscarPosicao(int posicao) {
+    if (posicao < 0 || posicao >= tamanho) {
+        return null;
+    }
+    return processo[posicao];
+    }
+
+    public Processo removeUltimo() {
+        if (tamanho == 0) {
+            return null;
+        }
+
+        Processo p = processo[tamanho - 1];
+        remover(tamanho - 1);
+        return p;
     }
 }
