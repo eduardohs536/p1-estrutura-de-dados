@@ -31,4 +31,8 @@ public class PilhaProcesso {
             System.out.println(vetor.buscarPosicao(i));
         }
     }
+
+    public int getTamanho() {
+        return vetor.getTamanho();
+    }
 }
