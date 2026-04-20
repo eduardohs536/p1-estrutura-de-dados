@@ -94,10 +94,10 @@ public class VetorDinamico {
     }
 
     public Processo buscarPosicao(int posicao) {
-    if (posicao < 0 || posicao >= tamanho) {
-        return null;
-    }
-    return processo[posicao];
+        if (posicao < 0 || posicao >= tamanho) {
+            return null;
+        }
+        return processo[posicao];
     }
 
     public Processo removeUltimo() {

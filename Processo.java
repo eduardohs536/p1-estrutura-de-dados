@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Processo {
 
     private static int contador = 0;
@@ -8,14 +11,16 @@ public class Processo {
     private int prioridade;
     private String dataHora;
 
-    public Processo(String solicitante, String tipoServico, int prioridade, String dataHora) {
+    public Processo(String solicitante, String tipoServico, int prioridade) {
         contador++;
         this.protocolo = contador;
 
         this.solicitante = solicitante;
         this.tipoServico = tipoServico;
         this.prioridade = prioridade;
-        this.dataHora = dataHora;
+
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        this.dataHora = LocalDateTime.now().format(fmt);
     }
 
     public int getProtocolo() {
