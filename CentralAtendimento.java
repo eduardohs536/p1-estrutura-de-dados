@@ -1,10 +1,10 @@
 public class CentralAtendimento {
 
-    private PilhaProcesso pendentes;
+    private PilhaPrioridade pendentes;
     private PilhaProcesso historico;
 
     public CentralAtendimento() {
-        this.pendentes = new PilhaProcesso();
+        this.pendentes = new PilhaPrioridade();
         this.historico = new PilhaProcesso();
     }
 
@@ -27,7 +27,7 @@ public class CentralAtendimento {
     }
 
     public void listarPendentes() {
-        pendentes.imprimir();
+        pendentes.listar();
     }
 
     public void listarHistorico() {
