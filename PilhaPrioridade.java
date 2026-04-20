@@ -23,21 +23,21 @@ public class PilhaPrioridade {
     public Processo pop() {
         if (prioridadeUrgente.getTamanho() > 0) {
             return prioridadeUrgente.pop();
-        } else if (prioridadeNormal.getTamanho() > 0) {
-            return prioridadeNormal.pop();
-        } else {
-            return prioridadeBaixa.pop();
         }
+        if (prioridadeNormal.getTamanho() > 0) {
+            return prioridadeNormal.pop();
+        }
+        return prioridadeBaixa.pop();
     }
 
     public Processo peek() {
         if (prioridadeUrgente.getTamanho() > 0) {
             return prioridadeUrgente.peek();
-        } else if (prioridadeNormal.getTamanho() > 0) {
-            return prioridadeNormal.peek();
-        } else {
-            return prioridadeBaixa.peek();
         }
+        if (prioridadeNormal.getTamanho() > 0) {
+            return prioridadeNormal.peek();
+        }
+        return prioridadeBaixa.peek();
     }
 
     public int tamanho() {
